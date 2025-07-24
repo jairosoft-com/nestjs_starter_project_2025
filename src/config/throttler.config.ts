@@ -18,8 +18,8 @@ export function getThrottlerConfig(): ThrottlerModuleOptions {
   return {
     throttlers: [
       {
-        ttl: isNaN(ttlSeconds) ? 60000 : ttlSeconds * 1000, // Convert to milliseconds
-        limit: isNaN(limit) ? 10 : limit,
+        ttl: Number.isNaN(ttlSeconds) ? 60000 : ttlSeconds * 1000, // Convert to milliseconds
+        limit: Number.isNaN(limit) ? 10 : limit,
       },
     ],
   };
