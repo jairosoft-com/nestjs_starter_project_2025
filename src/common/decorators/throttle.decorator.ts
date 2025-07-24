@@ -68,7 +68,9 @@ export function Throttle(
     };
   }
 
-  return NestThrottle(throttlerOptions as Record<string, unknown>);
+  return NestThrottle(
+    throttlerOptions as Record<string, { ttl: number; limit: number }>,
+  );
 }
 
 /**
