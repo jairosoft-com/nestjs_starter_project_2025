@@ -28,7 +28,7 @@ export class LoggingInterceptor implements NestInterceptor {
 
     // Generate or use existing request ID
     const existingId = request.headers['x-request-id'];
-    const requestId = typeof existingId === 'string' ? existingId : uuidv4();
+    const requestId = typeof existingId === 'string' ? existingId : LoggingInterceptor.generateRequestId();
     request.headers['x-request-id'] = requestId;
 
     const controller = context.getClass().name;
