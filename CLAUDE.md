@@ -2,6 +2,15 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Compact Summary
+
+**Project**: Modular monolithic NestJS 11 application
+**Key Features**: JWT auth, TypeORM + PostgreSQL, BullMQ queues, Swagger docs
+**Architecture**: Feature modules, repository pattern, dependency injection
+**Testing**: Jest unit/e2e tests, TDD approach
+**Security**: bcrypt, JWT, global auth guard, input validation
+**Quick Start**: `npm run start:dev` (requires Docker for DB/Redis)
+
 ## Essential Commands
 
 ### Development
