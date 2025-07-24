@@ -26,7 +26,7 @@ export class AuthController {
   @UseGuards(LocalAuthGuard)
   @Post('login')
   @HttpCode(HttpStatus.OK)
-  @Throttle({ short: { ttl: 1, limit: 3 }, long: { ttl: 60, limit: 10 } })
+  @Throttle({ short: { ttl: 1, limit: 5 }, long: { ttl: 60, limit: 20 } })
   @ApiOperation({ summary: 'User login' })
   @ApiResponse({ status: 200, description: 'Login successful' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
