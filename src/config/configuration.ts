@@ -14,4 +14,8 @@ export default () => ({
   redis: {
     url: process.env.REDIS_URL || 'redis://localhost:6379',
   },
+  cors: {
+    origins:
+      process.env.CORS_ORIGINS || 'http://localhost:3000,http://localhost:4200',
+  },
 });
