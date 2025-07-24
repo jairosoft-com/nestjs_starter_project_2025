@@ -47,9 +47,14 @@ async function bootstrap() {
       origin: string | undefined,
       callback: (err: Error | null, allow?: boolean) => void,
     ) => {
-      // Allow requests with no origin (like mobile apps or curl requests)
+      // Disallow requests with no origin by default, unless explicitly allowed
       if (!origin) {
-        callback(null, true);
+        const allowNoOrigin = configService.get<boolean>('cors.allowNoOrigin') ?? false;
+        if (allowNoOrigin) {
+          callback(null, true);
+        } else {
+          callback(new Error('Requests with no origin are not allowed by CORS'));
+        }
         return;
       }
 
