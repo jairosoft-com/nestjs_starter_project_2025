@@ -1,6 +1,7 @@
 import { Entity, Column, BeforeInsert } from 'typeorm';
 import { BaseEntity } from '../../../common/database/base.entity';
 import * as bcrypt from 'bcrypt';
+import { UserRole } from '../dto';
 
 @Entity('users')
 export class User extends BaseEntity {
@@ -8,10 +9,13 @@ export class User extends BaseEntity {
   email: string;
 
   @Column()
+  name: string;
+
+  @Column()
   password: string;
 
-  @Column('simple-array', { default: 'user' })
-  roles: string[];
+  @Column('simple-array', { default: UserRole.USER })
+  roles: UserRole[];
 
   @BeforeInsert()
   async hashPassword() {
