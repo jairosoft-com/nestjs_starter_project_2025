@@ -21,6 +21,7 @@ export class AuthService {
       return {
         id: user.id,
         email: user.email,
+        name: user.name,
         roles: user.roles,
         createdAt: user.createdAt,
         updatedAt: user.updatedAt,
@@ -40,11 +41,12 @@ export class AuthService {
     };
   }
 
-  async register(email: string, password: string) {
-    const user = await this.usersService.create({ email, password });
+  async register(email: string, password: string, name: string) {
+    const user = await this.usersService.create({ email, password, name });
     return {
       id: user.id,
       email: user.email,
+      name: user.name,
       roles: user.roles,
       createdAt: user.createdAt,
       updatedAt: user.updatedAt,
